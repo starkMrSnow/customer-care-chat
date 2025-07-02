@@ -34,7 +34,5 @@ public class WebSocketLoggingConfig implements WebSocketMessageBrokerConfigurer 
                 return message;
             }
         });
-
-
     }
 }

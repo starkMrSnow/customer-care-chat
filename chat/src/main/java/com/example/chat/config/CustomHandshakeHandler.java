@@ -8,7 +8,6 @@ import org.springframework.web.socket.server.support.DefaultHandshakeHandler;
 import java.security.Principal;
 import java.util.Map;
 
-
 public class CustomHandshakeHandler extends DefaultHandshakeHandler {
 
     @Override
@@ -23,8 +22,6 @@ public class CustomHandshakeHandler extends DefaultHandshakeHandler {
    
         return () -> userId;
     }
-
-  
     private String extractUserIdFromUri(String uri) {
         if (uri.contains("userId=")) {
             String userId = uri.substring(uri.indexOf("userId=") + 7);
