@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: chat_db
+    volumes:
+      - chat-data:/var/lib/postgresql/data
+    ports:
+      - "5434:5432"
+      
+
+  backend:
+    build:
+      context: ./chat
+      dockerfile: Dockerfile
+    ports:
+      - "8010:8010"
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/chat_db
+      SPRING_DATASOURCE_PASSWORD: stan
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    networks:
+      - chat-net
+
+
+  frontend:
+    build:
+      context: ./kyc-chat-frontend
+      dockerfile: Dockerfile
+    ports:
+      - "8083:80"
+    depends_on:
+      - backend
+    networks:
+      - chat-net
+
+networks:
+  chat-net:
+    driver: bridge
+
+volumes:
+  chat-data:
