@@ -1,29 +1,181 @@
 # 🗨️ Customer Chat Support System
 
-A lightweight real-time customer support chat system built to streamline communication between customers and support/admin staff. This project is ideal for platforms that require direct interaction with users, such as KYC systems, service portals, or e-commerce applications.
+A real-time customer support chat system that allows users to message an admin directly from your app or platform. Built with Spring Boot and Angular, this lightweight, modular solution can be embedded into KYC platforms, service portals, e-commerce sites, or any application that needs quick and direct customer communication.
 
 ---
 
 ## 🚀 Features
 
-- 🔁 **Real-time Messaging** – Instant chat updates using WebSocket (STOMP over SockJS).
-- 👥 **Customer-Admin Communication** – One-on-one chat between customers and the admin.
-- 💬 **Persistent Chat History** – All messages are stored in the database (PostgreSQL).
-- 🛡️ **Secure Connections** – Messages are exchanged over authenticated WebSocket connections.
-- ⚙️ **Scalable Backend** – Developed using Spring Boot, with REST endpoints for fetching message history.
-- 🎯 **Frontend Integration** – Designed to work seamlessly with Angular-based UIs.
+- 🔁 **Real-Time Messaging** – Built using WebSocket (STOMP over SockJS).
+- 👥 **One-on-One Chat** – Customers can chat directly with a single admin.
+- 💬 **Message History** – Messages are saved and retrievable from a PostgreSQL database.
+- 🧩 **Modular Frontend** – Easily embeddable Angular components (`admin`, `customer`, `welcome`).
+- 🔐 **Secure Communication** – WebSocket connection uses authenticated sessions.
+- ⚙️ **Scalable Backend** – Cleanly structured Spring Boot backend with separation of concerns.
+
+---
+
 
 ---
 
 ## 🧱 Tech Stack
 
 ### Backend
-- Java + Spring Boot
-- WebSocket (STOMP Protocol)
-- PostgreSQL
+- **Java** + **Spring Boot**
+- **STOMP over WebSocket**
+- **PostgreSQL**
+- **Maven**
 
 ### Frontend
-- Angular (for integration)
-- RxJS for WebSocket communication
+- **Angular**
+- **RxJS**
+- **WebSocket Client**
 
--
+---
+
+## 📁 Project Structure
+
+### 🖥️ Backend
+
+```bash
+backend/
+├── src/
+│   └── main/
+│       └── java/com/example/chat/
+│           ├── config/
+│           │   └── WebSocketConfig.java          # WebSocket/STOMP configuration
+│           ├── controller/
+│           │   └── ChatController.java           # REST + WebSocket endpoints
+│           ├── model/
+│           │   └── ChatMessage.java              # Chat message entity
+│           ├── service/
+│           │   └── ChatService.java              # Business logic
+│           └── repository/
+│               └── ChatMessageRepository.java    # Message DB access
+├── resources/
+│   └── application.properties                    # Database and WebSocket settings
+└── pom.xml                                       # Maven build configuration
+🌐 Frontend
+bash
+Copy
+Edit
+frontend/
+└── src/app/
+    ├── components/
+    │   ├── admin-chat/
+    │   │   ├── admin-chat.component.ts
+    │   │   ├── admin-chat.component.html
+    │   │   ├── admin-chat.component.scss
+    │   │   └── admin-chat.component.spec.ts
+    │   ├── customer-chat/
+    │   │   └── customer-chat.component.ts
+    │   └── welcome-screen/
+    │       ├── welcome-screen.component.ts
+    │       ├── welcome-screen.component.html
+    │       ├── welcome-screen.component.scss
+    │       └── welcome-screen.component.spec.ts
+    ├── service/
+    │   ├── chat-websocket.service.ts             # Manages WebSocket connection
+    │   └── chat-websocket.service.spec.ts
+    ├── app.config.ts
+    ├── app.routes.ts
+    ├── app.module.ts
+    ├── app.component.ts/html/scss/spec.ts
+    └── index.html
+
+🛠️ Setup Guide
+1. Clone the Repository
+bash
+Copy
+Edit
+git clone https://github.com/starkMrSnow/customer-chat-support.git
+cd customer-chat-support
+2. Backend Setup (Spring Boot)
+Create a PostgreSQL database (e.g., chatdb)
+
+Update credentials in backend/src/main/resources/application.properties
+
+properties
+Copy
+
+Edit
+spring.datasource.url=jdbc:postgresql://localhost:5432/chatdb
+spring.datasource.username=postgres
+spring.datasource.password=yourpassword
+spring.jpa.hibernate.ddl-auto=update
+Start the backend
+
+bash
+Copy
+Edit
+cd backend
+./mvnw spring-boot:run
+3. Frontend Setup (Angular)
+bash
+Copy
+Edit
+cd frontend
+npm install
+ng serve
+Access it via: http://localhost:4200
+
+🙌 Usage
+This system is free to use, modify, and embed in your own platforms:
+
+🧩 Drop-in ready Angular components
+
+🔌 Hook into your existing backend
+
+✏️ Modify styles, routes, or data logic as needed
+
+Fork it, extend it, or plug it directly into your project — no limitations.
+
+💡 Example Use Cases
+👩‍💼 KYC & onboarding platforms that require real-time verification assistance
+
+🛒 E-commerce platforms with customer support
+
+🧾 Portals for resolving customer issues
+
+🏢 Internal admin-customer chat for enterprise tools
+
+🛣️ Roadmap
+ Multi-admin / customer thread support
+
+ Authentication & session-based chat
+
+ Message status indicators (sent, delivered, read)
+
+ File uploads (images, attachments)
+
+ Typing indicator and presence tracking
+
+🤝 Contributing
+All contributions are welcome! Just:
+
+Fork the repo
+
+Create a feature branch
+
+Make your changes
+
+Submit a pull request
+
+📄 License
+This project is licensed under the MIT License.
+
+You're free to:
+
+✅ Use in commercial or personal projects
+
+✅ Modify and distribute
+
+✅ Embed into larger systems
+
+⚠️ Provided "as is", without warranty of any kind.
+
+👨‍💻 Author
+Stanley Otieno
+Built with ❤️ to make customer support more human and seamless.
+
+
