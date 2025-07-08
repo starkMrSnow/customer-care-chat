@@ -86,6 +86,8 @@ frontend/
     ├── app.component.scss
     ├── app.component.spec.ts
     └── index.html
+
+    
 🛠️ Setup Guide
 1. Clone the Repository
 bash
@@ -121,27 +123,32 @@ npm install
 ng serve
 Then visit: http://localhost:4200
 
+
+
 🙌 Usage
 This system is free to use, modify, and embed in your own platforms:
 
-🧩 Drop-in ready Angular components
+   🧩 Drop-in ready Angular components
 
-🔌 Hook into your existing backend
+   🔌 Hook into your existing backend
 
-✏️ Modify styles, routes, or data logic as needed
+   ✏️ Modify styles, routes, or data logic as needed
 
 Fork it, extend it, or plug it directly into your project — no limitations.
 
 💡 Example Use Cases
-👩‍💼 KYC & onboarding platforms that require real-time verification assistance
 
-🛒 E-commerce platforms with customer support
+  👩‍💼 KYC & onboarding platforms that require real-time verification assistance
 
-🧾 Portals for resolving customer issues
+   🛒 E-commerce platforms with customer support
 
-🏢 Internal admin-customer chat for enterprise tools
+   🧾 Portals for resolving customer issues
+
+   🏢 Internal admin-customer chat for enterprise tools
+
 
 🛣️ Roadmap
+
  Multi-admin / customer thread support
 
  Authentication & session-based chat
@@ -163,7 +170,9 @@ Make your changes
 
 Submit a pull request
 
+
 📄 License
+
 This project is licensed under the MIT License.
 
 You're free to:
