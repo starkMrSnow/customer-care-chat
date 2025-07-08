@@ -34,7 +34,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/ws")
+        registry.addEndpoint("/chat/ws")
                 .setHandshakeHandler(new CustomHandshakeHandler()) //  Register it
                 .setAllowedOriginPatterns("*")
                 .withSockJS(); 
