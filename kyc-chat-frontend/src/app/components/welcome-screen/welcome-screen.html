@@ -1,0 +1,17 @@
+<div class="welcome-container">
+  <div class="welcome-card">
+    <h2>Welcome to Customer Support!</h2>
+    <p>Please enter your name to start chatting.</p>
+
+    <div class="input-group">
+      <input
+        type="text"
+        [(ngModel)]="username"
+        (keydown.enter)="onStartChat()"
+        placeholder="Your Name"
+        aria-label="Enter your name"
+      />
+      <button (click)="onStartChat()" [disabled]="!username.trim()">Start Chat</button>
+    </div>
+  </div>
+</div>

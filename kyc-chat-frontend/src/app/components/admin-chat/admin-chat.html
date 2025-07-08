@@ -1,0 +1,58 @@
+<div class="chat-container">
+
+  <div class="user-list-sidebar">
+    <h3>Chats</h3>
+    <ul class="user-list">
+     
+      <li *ngFor="let user of users"
+        [class.active] = "user.UserId === selectedUserId"
+        (click) = "showUserChat(user.UserId)">
+        <div class="user-info">
+          <span class="user-name">{{ user.name }}</span>
+          <span class="unread-messages" *ngIf="user.UnreadCount">{{ user.UnreadCount }}</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="chat-area">
+    <div class="chat-header">
+      <h4 *ngIf="selectedUser">{{ selectedUser.name }}</h4>
+    </div>
+
+ 
+    <div class="message-list">
+    <div *ngFor="let message of filteredMessage"
+        [class.sent-by-user]="message.sender === 'user'"
+        [class.sent-by-admin]="message.sender === 'admin'"
+        class= "message-bubble">
+        <p>{{ message.content }}</p>
+        <span class="timestamp">{{ message.timestamp | date: 'shortTime' }}</span>
+      </div>
+
+      <!-- Message shown when no messages are available (hidden by placeholders for now) -->
+      <!-- <div class="no-messages">No messages yet. Start a conversation!</div> -->
+    </div>
+
+    <div class="message-input-area">
+      <textarea [(ngModel)] = "newMessageText"
+                placeholder="Type your message..." 
+                aria-label="Type your message">
+
+      </textarea>
+      <button  (click)="sendMessage()"
+                [disabled]="!newMessageText.trim()" 
+                aria-label="Send message" >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="send-icon">
+          <path d="M22 2L11 13"></path>
+          <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Message shown when no user is selected (will not be seen with default header) -->
+    <!-- <div class="no-chat-selected">
+      <p>Select a user from the left to start chatting.</p>
+    </div> -->
+  </div>
+</div>
