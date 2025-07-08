@@ -16,8 +16,6 @@ A real-time customer support chat system that allows users to message an admin d
 ---
 
 
----
-
 ## 🧱 Tech Stack
 
 ### Backend
