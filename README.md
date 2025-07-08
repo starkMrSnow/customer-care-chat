@@ -33,11 +33,11 @@ A real-time customer support chat system that allows users to message an admin d
 
 ---
 
-## 📁 Project Structure
-
-### 🖥️ Backend
-
-```bash
+📁 Project Structure
+🖥️ Backend
+bash
+Copy
+Edit
 backend/
 ├── src/
 │   └── main/
@@ -55,6 +55,7 @@ backend/
 ├── resources/
 │   └── application.properties                    # Database and WebSocket settings
 └── pom.xml                                       # Maven build configuration
+
 🌐 Frontend
 bash
 Copy
@@ -80,9 +81,11 @@ frontend/
     ├── app.config.ts
     ├── app.routes.ts
     ├── app.module.ts
-    ├── app.component.ts/html/scss/spec.ts
+    ├── app.component.ts
+    ├── app.component.html
+    ├── app.component.scss
+    ├── app.component.spec.ts
     └── index.html
-
 🛠️ Setup Guide
 1. Clone the Repository
 bash
@@ -93,17 +96,16 @@ cd customer-chat-support
 2. Backend Setup (Spring Boot)
 Create a PostgreSQL database (e.g., chatdb)
 
-Update credentials in backend/src/main/resources/application.properties
+Update credentials in backend/src/main/resources/application.properties:
 
 properties
 Copy
-
 Edit
 spring.datasource.url=jdbc:postgresql://localhost:5432/chatdb
 spring.datasource.username=postgres
 spring.datasource.password=yourpassword
 spring.jpa.hibernate.ddl-auto=update
-Start the backend
+Start the backend:
 
 bash
 Copy
@@ -117,7 +119,7 @@ Edit
 cd frontend
 npm install
 ng serve
-Access it via: http://localhost:4200
+Then visit: http://localhost:4200
 
 🙌 Usage
 This system is free to use, modify, and embed in your own platforms:
@@ -176,6 +178,4 @@ You're free to:
 
 👨‍💻 Author
 Stanley Otieno
-Built with ❤️ to make customer support more human and seamless.
-
-
+Built with ❤️ to make customer support more human and seamles
