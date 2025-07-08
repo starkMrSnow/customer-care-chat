@@ -19,7 +19,6 @@ public class CustomHandshakeHandler extends DefaultHandshakeHandler {
 
         final String userId = extractedUserId != null ? extractedUserId : "unknown";
 
-   
         return () -> userId;
     }
     private String extractUserIdFromUri(String uri) {

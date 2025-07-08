@@ -9,8 +9,6 @@ import org.springframework.messaging.support.ChannelInterceptor;
 
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
 
-
-
 @Configuration
 public class WebSocketLoggingConfig implements WebSocketMessageBrokerConfigurer {
 
